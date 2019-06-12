@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Angular JS Filter</title>
+  
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  
+  <div class="container" data-ng-app="myApp" data-ng-controller="myCtrl">
+    <div class="row">
+      <div class="col-md-2">
+        Search:
+      </div>
+      <div class="col-md-10">
+        <input type="text" class="search" data-ng-model="table" />
+      </div>
+      <div>
+        <button type="button" id="updateInfo">Refresh!</button>
+      </div>
+    </div>
+    <br/>
+    <table>
+      <tr>
+        <th>Product ID</th>
+        <th>Product Code</th>
+        <th>Price</th>
+      </tr>
+      <tr data-ng-repeat="people in products_table_datas | filter: table">
+        <td>{{people._id}}</td>
+        <td>{{people.product_code}}</td>
+        <td>{{people.price}}</td>
+        <!--<td>{{customer.price}}</td>-->
+      </tr>
+    </table>
+    <div data-pagination="" data-num-pages="numPages()" data-current-page="currentPage" data-max-size="maxSize" data-boundary-links="true"></div>
+  </div>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
+<script src='https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.min.js'></script>  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
