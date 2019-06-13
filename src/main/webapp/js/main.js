@@ -10,9 +10,15 @@ $(document).ready(function(){
             $.each(data, function (key, val) {
                 productData += '<tr>';
                 productData += "<th scope='row'>" + val._id + "</th>";
+                productData += "<td>" + val.product_name + "</td>";
+                productData += "<td>" + val.descripcion + "</td>";
                 productData += "<td>" + val.product_code + "</td>";
                 productData += "<td>" + val.price + "</td>";
-                productData += "<td>" + "NA" + "</td>";
+                productData += "<td>" + val.QTY_inStock + "</td>";
+                productData += "<td>" + val.orderNo + "</td>";
+                productData += "<td>" + val.entry_date + "</td>";
+                productData += "<td>" + val.exit_date + "</td>";
+                productData += "<td>" + val.product_type + "</td>";
                 productData += '</tr>';
 
             });
