@@ -1,20 +1,22 @@
 $(document).ready(function(){
-    traerInfoVideojuegos();
-    function traerInfoVideojuegos()
+
+    bringProductInfo();
+
+    function bringProductInfo()
     {
-        $.getJSON("/videogames", function (data) {
+        $.getJSON("/products", function (data) {
             console.log(data);
-            var videogameData = '';
+            var productData = '';
             $.each(data, function (key, val) {
-                videogameData += '<tr>';
-                videogameData += "<th scope='row'>" + val.idVideogame + "</th>";
-                videogameData += "<td>" + val.video_name + "</td>";
-                videogameData += "<td>" + val.platform + "</td>";
-                videogameData += "<td>" + val.category + "</td>";
-                videogameData += '</tr>';
+                productData += '<tr>';
+                productData += "<th scope='row'>" + val._id + "</th>";
+                productData += "<td>" + val.product_code + "</td>";
+                productData += "<td>" + val.price + "</td>";
+                productData += "<td>" + "NA" + "</td>";
+                productData += '</tr>';
 
             });
-            $('#videogameTable').append(videogameData);
+            $('#productTable').append(productData);
 
 
         });
@@ -47,8 +49,8 @@ $(document).ready(function(){
     $( "#persistir" ).click(function( event ) {
         event.preventDefault();
         var numero = $("#empresasData").prop('selectedIndex');
-        var urlVideogamesPersist = "/empresas/"+numero+"/videogames";
-        var data = { video_name: $("#inputVideojuego").val(),
+        var urlVideogamesPersist = "/empresas/"+numero+"/products";
+        var data = { video_name: $("#inputProduct").val(),
             platform: $("#inputPlatform").val(),
             category: $("#inputCategory").val()};
 
@@ -92,4 +94,3 @@ $(document).ready(function(){
     }
 
 });
-

@@ -10,14 +10,14 @@
 </head>
 <body>
     <div class="container">
-            <h1>HOLA SPRING D:</h1>
+            <h1>Stock Control</h1>
 
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="pill" href="#Home">Home :D</a>
+                <a class="nav-link active" data-toggle="pill" href="#Home">Stock Control Beta</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="pill" href="#Videojuegos">Videojuegos</a>
+                <a class="nav-link" data-toggle="pill" href="#Products">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="pill" href="#Empresas">Empresas</a>
@@ -25,7 +25,7 @@
            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Agrega Info</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" data-toggle="pill" href="#videoPersist">+ Videogames</a>
+                    <a class="dropdown-item" data-toggle="pill" href="#productPersist">+ Products</a>
                     <a class="dropdown-item" data-toggle="pill" href="#EmpresaPersist">+ Empresa</a>
                 </div>
             </li>
@@ -35,24 +35,24 @@
         <div class="tab-content">
             <div class="tab-pane container active" id="Home">
                 <div class="card-body">
-                    <h5 class="card-title">Hola amigos!</h5>
+                    <h5 class="card-title">Stock Control Beta Home!</h5>
                     <div class="row">
 
                     </div>
                 </div>
             </div>
-            <div class="tab-pane container " id="Videojuegos">
+            <div class="tab-pane container " id="Products">
                 <div class="card-body">
-                    <h5 class="card-title">Hola amigos!</h5>
+                    <h5 class="card-title">Stock Inventory</h5>
                     <div class="row">
-                        <table class="table table-hover" id="videogameTable">
+                        <table class="table table-hover" id="productTable">
                             <thead>
                             <tr>
-                                <th scope="col">id Videogame</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Platform</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Bonotes</th>
+                                <th scope="col">id Product</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Product Code</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">B</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -64,7 +64,7 @@
             </div>
             <div class="tab-pane container " id="Empresas">
                 <div class="card-body">
-                    <h5 class="card-title">Empresas a la vista</h5>
+                    <h5 class="card-title">Empresas As</h5>
                     <div class="row">
                         <table class="table table-hover" id="EmpresasTable">
                             <thead>
@@ -82,24 +82,24 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane container" id="videoPersist">
+            <div class="tab-pane container" id="productPersist">
                 <div class="card-body">
-                    <h5 class="card-title">Agrega videojuegos</h5>
-                    <p class="card-text">Crea unos maravillosos videojuegos !!</p>
+                    <h5 class="card-title">Add product</h5>
+                    <p class="card-text">Create a new product!</p>
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputVideojuego">Nombre de Videojuego</label>
-                                <input name="nombre" type="text" class="form-control" id="inputVideojuego" placeholder="Videojuego">
+                                <label for="inputProduct">Product Name</label>
+                                <input name="name" type="text" class="form-control" id="inputProduct" placeholder="Product">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="inputPlatform">Plataforma</label>
-                                <input name="plataforma" type="text" class="form-control" id="inputPlatform" placeholder="Platform">
+                                <label for="inputProductCode">Product Code</label>
+                                <input name="productCode" type="text" class="form-control" id="inputProductCode" placeholder="Product Code">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputCategory">Categoria</label>
-                            <input name="categoria" type="text" class="form-control" id="inputCategory" placeholder="Action or something">
+                            <label for="inputPrice">Price</label>
+                            <input name="price" type="text" class="form-control" id="inputPrice" placeholder="Price">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
