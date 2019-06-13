@@ -1,57 +1,221 @@
 <!DOCTYPE html>
-<html lang="en" >
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Angular JS Filter</title>
-  
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'>
-
-      <link rel="stylesheet" href="css/style.css">
-
-  
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
-
 <body>
+    <div class="container">
+            <h1>HOLA SPRING D:</h1>
 
-  
-  <div class="container" data-ng-app="myApp" data-ng-controller="myCtrl">
-    <div class="row">
-      <div class="col-md-2">
-        Search:
-      </div>
-      <div class="col-md-10">
-        <input type="text" class="search" data-ng-model="table" />
-      </div>
-      <div>
-        <button type="button" id="updateInfo">Refresh!</button>
-      </div>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="pill" href="#Home">Home :D</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#Videojuegos">Videojuegos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#Empresas">Empresas</a>
+            </li>
+           <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Agrega Info</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" data-toggle="pill" href="#videoPersist">+ Videogames</a>
+                    <a class="dropdown-item" data-toggle="pill" href="#EmpresaPersist">+ Empresa</a>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane container active" id="Home">
+                <div class="card-body">
+                    <h5 class="card-title">Hola amigos!</h5>
+                    <div class="row">
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane container " id="Videojuegos">
+                <div class="card-body">
+                    <h5 class="card-title">Hola amigos!</h5>
+                    <div class="row">
+                        <table class="table table-hover" id="videogameTable">
+                            <thead>
+                            <tr>
+                                <th scope="col">id Videogame</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Platform</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Bonotes</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane container " id="Empresas">
+                <div class="card-body">
+                    <h5 class="card-title">Empresas a la vista</h5>
+                    <div class="row">
+                        <table class="table table-hover" id="EmpresasTable">
+                            <thead>
+                            <tr>
+                                <th scope="col">id Empresa</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Descrición</th>
+                                <th scope="col">Bonotes</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane container" id="videoPersist">
+                <div class="card-body">
+                    <h5 class="card-title">Agrega videojuegos</h5>
+                    <p class="card-text">Crea unos maravillosos videojuegos !!</p>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputVideojuego">Nombre de Videojuego</label>
+                                <input name="nombre" type="text" class="form-control" id="inputVideojuego" placeholder="Videojuego">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPlatform">Plataforma</label>
+                                <input name="plataforma" type="text" class="form-control" id="inputPlatform" placeholder="Platform">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCategory">Categoria</label>
+                            <input name="categoria" type="text" class="form-control" id="inputCategory" placeholder="Action or something">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="empresasData">Empresa</label>
+                                <select id="empresasData" class="form-control">
+                                    <option selected>Selecciona una...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="persistir">Persistir</button>
+                    </form>
+
+                </div>
+            </div>
+            <div class="tab-pane container" id="EmpresaPersist">
+                <div class="card-body">
+                    <div class="container" id="empresa">
+                        <h5 class="card-title">Empresas persist!</h5>
+                        <p class="card-text">Ingresa la información de cada empresa</p>
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputNomEmpresa">Nombre de la empresa</label>
+                                    <input name="nombre" type="text" class="form-control" id="inputNomEmpresa" placeholder="Empresa">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputDescEmpresa">Descripción</label>
+                                    <input name="plataforma" type="text" class="form-control" id="inputDescEmpresa" placeholder="Pequeña descripción de cada empresa">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="persistirEmpresa">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <br/>
-    <table>
-      <tr>
-        <th>Product ID</th>
-        <th>Product Code</th>
-        <th>Price</th>
-      </tr>
-      <tr data-ng-repeat="people in products_table_datas | filter: table">
-        <td>{{people._id}}</td>
-        <td>{{people.product_code}}</td>
-        <td>{{people.price}}</td>
-        <!--<td>{{customer.price}}</td>-->
-      </tr>
-    </table>
-    <div data-pagination="" data-num-pages="numPages()" data-current-page="currentPage" data-max-size="maxSize" data-boundary-links="true"></div>
-  </div>
-  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
-<script src='https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.min.js'></script>  
 
-    <script  src="js/index.js"></script>
-
-
-
-
+            <script src="js/main.js"></script>
 </body>
-
 </html>
+
+<!--
+<div class="tab-pane container active" id="videojuegos">
+    <div class="card-body">
+        <h5 class="card-title">Agrega videojuegos</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputVideojuego">Nombre de Videojuego</label>
+                    <input name="nombre" type="text" class="form-control" id="inputVideojuego" placeholder="Videojuego">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPlatform">Plataforma</label>
+                    <input name="plataforma" type="text" class="form-control" id="inputPlatform" placeholder="Platform">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputCategory">Categoria</label>
+                <input name="categoria" type="text" class="form-control" id="inputCategory" placeholder="Action or something">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="empresasData">Empresa</label>
+                    <select id="empresasData" class="form-control">
+                        <option selected>Selecciona una...</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="persistir">Persistir</button>
+        </form>
+
+    </div>
+</div>
+<div class="tab-pane container fade" id="Empresas">
+    <div class="card-body">
+        <div class="container" id="empresa">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputNomEmpresa">Nombre de la empresa</label>
+                        <input name="nombre" type="text" class="form-control" id="inputNomEmpresa" placeholder="Videojuego">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputDescEmpresa">Descripción</label>
+                        <input name="plataforma" type="text" class="form-control" id="inputDescEmpresa" placeholder="Platform">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="persistirEmpresa">Persistir</button>
+            </form>
+        </div>
+    </div>
+</div>-->
