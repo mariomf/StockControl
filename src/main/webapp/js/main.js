@@ -11,7 +11,7 @@ $(document).ready(function(){
                 productData += '<tr>';
                 productData += "<th scope='row'>" + val._id + "</th>";
                 productData += "<td>" + val.product_name + "</td>";
-                productData += "<td>" + val.descripcion + "</td>";
+                productData += "<td>" + val.description + "</td>";
                 productData += "<td>" + val.product_code + "</td>";
                 productData += "<td>" + val.price + "</td>";
                 productData += "<td>" + val.QTY_inStock + "</td>";
