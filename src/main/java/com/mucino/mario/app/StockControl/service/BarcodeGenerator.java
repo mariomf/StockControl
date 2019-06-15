@@ -19,7 +19,7 @@ public class BarcodeGenerator {
 	
 	public Object generateBarcode() throws IOException, WriterException{
 	
-		String text = "Mario M.F."; // this is the text that we want to encode
+		String text = "Ex. 124398475294"; // this is the text that we want to encode
 
 		int width = 300;
 		int height = 300; // change the height and width as per your requirement
