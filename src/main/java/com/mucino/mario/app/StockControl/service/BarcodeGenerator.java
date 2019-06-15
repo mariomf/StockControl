@@ -1,5 +1,6 @@
 package com.mucino.mario.app.StockControl.service;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,18 +17,23 @@ import com.google.zxing.qrcode.QRCodeWriter;
 @Component
 public class BarcodeGenerator {
 	
-	public void generateBarcode() throws IOException, WriterException{
+	public Object generateBarcode() throws IOException, WriterException{
 	
-		String text = "98376373783"; // this is the text that we want to encode
+		String text = "Mario M.F."; // this is the text that we want to encode
 
-		int width = 400;
+		int width = 300;
 		int height = 300; // change the height and width as per your requirement
 
 		// (ImageIO.getWriterFormatNames() returns a list of supported formats)
-		String imageFormat = "png"; // could be "gif", "tiff", "jpeg" 
+		//String imageFormat = "png"; // could be "gif", "tiff", "jpeg" 
 
 		BitMatrix bitMatrix = new QRCodeWriter().encode(text, BarcodeFormat.QR_CODE, width, height);
-		MatrixToImageWriter.writeToStream(bitMatrix, imageFormat, new FileOutputStream(new File("qrcode_97802017507991.png")));
+		
+		//writeToStream(BitMatrix matrix, String format, OutputStream stream)
+		//MatrixToImageWriter.writeToStream(bitMatrix, imageFormat, new FileOutputStream(new File("qrcode.png")));
+		return MatrixToImageWriter.toBufferedImage(bitMatrix);
+		//toBufferedImage(BitMatrix matrix)
+		//MatrixToImageWriter.writeToPath(bitMatrix, imageFormat, "")
 		
 	}
 
