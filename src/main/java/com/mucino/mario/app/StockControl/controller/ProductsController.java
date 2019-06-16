@@ -58,7 +58,8 @@ public class ProductsController {
 	@RequestMapping(value = "//products", method = RequestMethod.POST)
 	public Products createProduct(@Valid @RequestBody Products products) throws IOException, WriterException {
 		
-		products.set_id(ObjectId.get());
+		ObjectId product_id = ObjectId.get();
+		products.set_id(product_id);
 		
 		//*******************************************
 		@SuppressWarnings("resource")
@@ -69,7 +70,7 @@ public class ProductsController {
 		String newFileName = "barcode";
 		
 		File imageFile = new File("image.png");
-		ImageIO.write((RenderedImage) barcodeGenerator.generateBarcode(), "png", imageFile);
+		ImageIO.write((RenderedImage) barcodeGenerator.generateBarcode(product_id.toString()), "png", imageFile);
 		
 		//byte[] imageFile = (byte[]) barcodeGenerator.generateBarcode();
 		GridFS gfsPhoto = new GridFS(database, "photo");
