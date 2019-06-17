@@ -62,21 +62,26 @@ public class ProductsController {
 		products.set_id(product_id);
 		
 		//*******************************************
-		@SuppressWarnings("resource")
-		MongoClient mongoClient = new MongoClient();
-		//DB database = mongoClient.getDB(MongoDBFactory.STOCK_CONTROL_DB);
-		@SuppressWarnings("deprecation")
-		DB database = mongoClient.getDB("STOCK_CONTROL_DB");
-		String newFileName = "barcode";
-		
-		File imageFile = new File("image.png");
+		File imageFile = new File("src\\main\\webapp\\img\\qr_"+product_id.toString()+".png");
 		ImageIO.write((RenderedImage) barcodeGenerator.generateBarcode(product_id.toString()), "png", imageFile);
-		
-		//byte[] imageFile = (byte[]) barcodeGenerator.generateBarcode();
-		GridFS gfsPhoto = new GridFS(database, "photo");
-		GridFSInputFile gfsFile = gfsPhoto.createFile(imageFile);
-		gfsFile.setFilename(newFileName);
-		gfsFile.save();
+		//*******************************************
+//		@SuppressWarnings("resource")
+//		MongoClient mongoClient = new MongoClient();
+//		//DB database = mongoClient.getDB(MongoDBFactory.STOCK_CONTROL_DB);
+//		@SuppressWarnings("deprecation")
+//		DB database = mongoClient.getDB("STOCK_CONTROL_DB");
+//		String newFileName = "barcode";
+//		
+//		File imageFile = new File("image.png");
+//		ImageIO.write((RenderedImage) barcodeGenerator.generateBarcode(product_id.toString()), "png", imageFile);
+//		
+//		//byte[] imageFile = (byte[]) barcodeGenerator.generateBarcode();
+//		GridFS gfsPhoto = new GridFS(database, "barcodes");
+//		GridFSInputFile gfsFile = gfsPhoto.createFile(imageFile);
+//		gfsFile.setFilename(newFileName);
+//		//gfsFile.save();
+//		
+//		products.setBarcode(gfsFile);
 		//*******************************************
 		
 	  repository.save(products);

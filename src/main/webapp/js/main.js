@@ -2,14 +2,31 @@ $(document).ready(function(){
 
     bringProductInfo();
 
+    function changeColor(exit_date)
+    {
+      var available = "";
+      if(exit_date == "")
+      {
+        available = "blue";
+      }
+      else
+      {
+        available = "red"
+      }
+
+      return available;
+    }
+
     function bringProductInfo()
     {
         $.getJSON("/products", function (data) {
             console.log(data);
             var productData = '';
             $.each(data, function (key, val) {
-                productData += '<tr>';
-                productData += "<th scope='row'>" + val._id + "</th>";
+                productData += "<tr style='color:"+changeColor(val.exit_date)+"'>";
+                productData += "<th scope='row'>" +
+                "<img class='card-img-top' src='img/qr_"+val._id+".png' alt='Card image cap' style='width:100px;height:100px;'>"+
+                "</th>";
                 productData += "<td>" + val.product_name + "</td>";
                 productData += "<td>" + val.description + "</td>";
                 productData += "<td>" + val.product_code + "</td>";
