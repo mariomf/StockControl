@@ -1,13 +1,18 @@
 package com.mucino.mario.app.StockControl.model;
 
+import java.io.File;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+
+import com.mongodb.gridfs.GridFSInputFile;
 
 public class Products {
 	
 	@Id
 	public ObjectId _id;
 	  
+	public GridFSInputFile barcode;
 	public String product_name;
 	public String description;
 	public String product_code;
@@ -22,10 +27,11 @@ public class Products {
 	// Constructors
 	public Products() {}
 	  
-	public Products(ObjectId _id, String product_name, String description, String product_code, String price,
+	public Products(ObjectId _id, GridFSInputFile barcode, String product_name, String description, String product_code, String price,
 			String QTY_inStock, String orderNo, String entry_date, String exit_date, String product_type) {
 		
 	  this._id = _id;
+	  this.barcode = barcode;
 	  this.product_name = product_name;
 	  this.description = description;  
 	  this.product_code = product_code;
@@ -40,6 +46,9 @@ public class Products {
 	// ObjectId needs to be converted to string
 	public String get_id() { return _id.toHexString(); }
 	public void set_id(ObjectId _id) { this._id = _id; }
+	
+	public GridFSInputFile getBarcode() { return barcode; }
+	public void setBarcode(GridFSInputFile barcode) {this.barcode = barcode; }
 	
 	public String getProduct_name() {return product_name; }
 	public void setProduct_naem(String product_name) {this.product_name = product_name; }
